@@ -23,7 +23,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8341508835261516754}
-  m_LocalRotation: {x: -0, y: 0.8544068, z: -0, w: 0.51960474}
+  m_LocalRotation: {x: 0, y: 0.8544089, z: 0, w: 0.5196012}
   m_LocalPosition: {x: 0, y: 0.0677, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
@@ -87,6 +87,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShiningObstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 42453246c517b07448395b27b88cb1c8, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42453246c517b07448395b27b88cb1c8, type: 3}
 --- !u!4 &8379025629023737126 stripped
@@ -113,3 +117,23 @@ CapsuleCollider:
   m_Height: 0.26210523
   m_Direction: 1
   m_Center: {x: -2.5512951e-12, y: 0.0011758804, z: 0.0004628971}
+--- !u!95 &8272643002393137947
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9152325748691488668}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 77c0971d3d676da47a43484a7ddbfba0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
