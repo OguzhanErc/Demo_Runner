@@ -4,16 +4,25 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField]
-    float runningSpeed;
 
+    public float runningSpeed;
+
+    Rigidbody _rb;
     float touchXDelta = 0;
     float newX = 0;
 
     [SerializeField]
     float xSpeed;
+
     [SerializeField]
     float limitX;
+
+   
+    private void Start()
+    {
+        _rb = GetComponent<Rigidbody>();
+     //   transform.Rotate(transform.rotation.x, 180, transform.rotation.z, Space.Self);
+    }
     void Update()
     {
         Movement();
