@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Obstacle
   - Stick
+  - ShiningObject
+  - RotatorMain
   layers:
   - Default
   - TransparentFX
