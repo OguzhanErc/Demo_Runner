@@ -8,6 +8,10 @@ TagManager:
   - Stick
   - ShiningObject
   - RotatorMain
+  - Donut
+  - RotationPlatform
+  - Runner
+  - cube
   layers:
   - Default
   - TransparentFX

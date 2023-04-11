@@ -6,69 +6,72 @@ using UnityEngine.Events;
 
 public class CollisionControl : MonoBehaviour
 {
-    public static CollisionControl Instance;
-    Rigidbody _rb; 
-    public PlayerController playerController;
+
+    Rigidbody _rb;
+    public float forcePower;
     public GameObject startPoint;
+    Animator anim;
 
-   [Serializable] public class Triggers: UnityEvent { }
+    [Serializable] public class Triggers : UnityEvent { }
 
-    public Triggers rotatorStick;
-    public Triggers rotatorMain;
-    public Triggers rotatorObject;
-    public Triggers donutObject;
-    
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            Instance = this;
-        }
-    }
+    public Triggers rotatorMain;//Completed.
+    public Triggers rotatorStick;//Completed.
+    public Triggers finishLine;
+ 
+  
     private void Start()
     {
+        anim = GetComponentInChildren<Animator>();
         _rb = GetComponent<Rigidbody>();
     }
 
     //Controlling collisions
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Obstacle"))
+     
+        if (collision.gameObject.CompareTag("RotatorMain"))
         {
-            Debug.Log("Collision with an obstacle");
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-       
-        if (other.CompareTag("Finish"))
-        {
-            playerController.runningSpeed = 0;
-        }
-        if (other.CompareTag("Stick"))
-        {
-
-        }
-        if (other.CompareTag("RotatorMain"))
-        {
+          
             rotatorMain.Invoke();
         }
-        if (other.CompareTag("Donut"))
+        if (collision.gameObject.CompareTag("Stick"))
         {
-
+            rotatorStick.Invoke();
         }
-       
+        if (collision.gameObject.CompareTag("Finish"))
+        {
+          
+            finishLine.Invoke();
+        }
     }
-    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (gameObject.CompareTag("Finish"))
+        {
+            Debug.Log("Triggered Finish");
+            finishLine.Invoke();
+        }
+    }
+
+
+    /// <summary>
+    /// Starts from the beggining.
+    /// </summary>
     public void RollBack()
     {
-        this.transform.position = startPoint.transform.position;
+        Debug.Log("RollBack");
+        transform.position = startPoint.transform.position;
     }
-   
+    /// <summary>
+    /// Pushes back when hitting an obstacle
+    /// </summary>
+    public void PushBack()
+    {
+        _rb.AddForce(Vector3.back * forcePower);
+    }
+    public void StopAnimations()
+    {
+        anim.SetBool("Idle", true);
+    }
 
 }

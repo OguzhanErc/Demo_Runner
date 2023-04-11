@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  uniqueID: 8676928034513693770
+  uniqueID: 991708078024885482
   updateError: 1
   checkTime: 0.1
 --- !u!1001 &1254291073741077712
@@ -255,7 +255,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -82161830586255251, guid: a2a1a07b01efe5241aa5368e333def1d, type: 3}
       propertyPath: m_TagString
-      value: Obstacle
+      value: Donut
       objectReference: {fileID: 0}
     - target: {fileID: -82161830586255251, guid: a2a1a07b01efe5241aa5368e333def1d, type: 3}
       propertyPath: m_NavMeshLayer
@@ -272,6 +272,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a2a1a07b01efe5241aa5368e333def1d, type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a2a1a07b01efe5241aa5368e333def1d, type: 3}
+      propertyPath: m_TagString
+      value: Donut
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a2a1a07b01efe5241aa5368e333def1d, type: 3}
       propertyPath: m_NavMeshLayer
@@ -462,6 +466,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  uniqueID: 4606676069906667375
+  uniqueID: 9152308841308935323
   updateError: 1
   checkTime: 0.1

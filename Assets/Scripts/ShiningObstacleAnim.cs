@@ -14,22 +14,27 @@ public class ShiningObstacleAnim : MonoBehaviour
 
     float randomOffset;
 
-    ParticleSystem particleSystem;
+    ParticleSystem prtSystem;
     [Serializable] public class Trigger : UnityEvent { }
 
     public Trigger Racers;
+
     void Start()
     {
         randomOffset = UnityEngine.Random.Range(-6, 6);
     }
 
-   
+
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Triggered");
         Racers.Invoke();
     }
     void Update()
+    {
+        ObstacleMovement();
+    }
+
+    private void ObstacleMovement()
     {
         transform.Rotate(0, 1, 0);
         Vector3 pos = transform.position;
@@ -39,8 +44,8 @@ public class ShiningObstacleAnim : MonoBehaviour
 
     public void ChangeColor()
     {
-        particleSystem = gameObject.GetComponentInChildren<ParticleSystem>();
-        var main = particleSystem.main;
+        prtSystem = gameObject.GetComponentInChildren<ParticleSystem>();
+        var main = prtSystem.main;
         main.startColor = new Color(.15f, 1, 0, 1);
     }
 }

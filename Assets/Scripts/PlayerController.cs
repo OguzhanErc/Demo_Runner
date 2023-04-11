@@ -7,6 +7,9 @@ public class PlayerController : MonoBehaviour
 
     public float runningSpeed;
 
+  
+
+
     Rigidbody _rb;
     float touchXDelta = 0;
     float newX = 0;
@@ -17,15 +20,24 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     float limitX;
 
-   
+    public GameObject PaintingArea;
+
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
-     //   transform.Rotate(transform.rotation.x, 180, transform.rotation.z, Space.Self);
+       
     }
     void Update()
     {
-        Movement();
+        if (GameManager.instance.isGameOver==false)
+        {
+            Movement();
+        }
+        else
+        {
+            PaintingStage();
+        }
+        
     }
 
 
@@ -51,5 +63,12 @@ public class PlayerController : MonoBehaviour
 
         Vector3 newPosition = new Vector3(newX, transform.position.y, transform.position.z + runningSpeed * Time.deltaTime);
         transform.position = newPosition;
+
+    }
+
+    private void PaintingStage()
+    {       
+            runningSpeed = 0;
+            gameObject.transform.position = PaintingArea.transform.position;        
     }
 }
