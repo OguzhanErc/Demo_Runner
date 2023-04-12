@@ -7,6 +7,7 @@ public class PlayerCollision : MonoBehaviour
     public GameObject startPoint;
     Animator anim;
     Rigidbody rb;
+    
     public float forcePower;
 
     private void Start()
@@ -14,7 +15,10 @@ public class PlayerCollision : MonoBehaviour
         anim =GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody>();
     }
-
+    private void Update()
+    {
+       
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("RotatorMain"))
@@ -31,11 +35,5 @@ public class PlayerCollision : MonoBehaviour
             rb.AddForce(Vector3.back * forcePower);
         }
     }
-    private void OnCollisionStay(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("RotationPlatform"))
-        {
-            rb.AddForce(Vector3.left, ForceMode.VelocityChange);
-        }
-    }
+  
 }

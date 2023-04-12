@@ -7,9 +7,6 @@ public class PlayerController : MonoBehaviour
 
     public float runningSpeed;
 
-  
-
-
     Rigidbody _rb;
     float touchXDelta = 0;
     float newX = 0;
@@ -21,7 +18,8 @@ public class PlayerController : MonoBehaviour
     float limitX;
 
     public GameObject PaintingArea;
-
+    bool isOnRotatingGround;
+    public float forcePower;
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
@@ -29,6 +27,10 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
+        if (isOnRotatingGround)
+        {
+            _rb.AddForce(Vector3.left * forcePower, ForceMode.Impulse);
+        }
         if (GameManager.instance.isGameOver==false)
         {
             Movement();
@@ -71,4 +73,17 @@ public class PlayerController : MonoBehaviour
             runningSpeed = 0;
             gameObject.transform.position = PaintingArea.transform.position;        
     }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("RotationPlatform"))
+        {
+            isOnRotatingGround = true;
+        }
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        isOnRotatingGround = false;
+    }
+
 }

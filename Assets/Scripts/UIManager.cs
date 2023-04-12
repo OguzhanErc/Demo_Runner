@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     public GameObject paintingPannel;
     public GameObject inGameRankings;
     public GameObject deathCountPannel;
+    public Slider brushSize;
 
     private void Awake()
     {
@@ -29,19 +30,15 @@ public class UIManager : MonoBehaviour
     }
     void Start()
     {
-       
-
         deathCount = 0;
-
         paintingPannel.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
         deathCountText.text = deathCount.ToString();
         PaintingStage();
-        
+        //painter.GetComponent<PaintIn3D.P3dPaintDecal>().Radius = brushSize.value;
     }
 
     public void PaintingRed()
@@ -66,7 +63,6 @@ public class UIManager : MonoBehaviour
             paintingPannel.SetActive(true);
             inGameRankings.SetActive(false);
             deathCountPannel.SetActive(false);
-        }
-        
+        }       
     }
 }
